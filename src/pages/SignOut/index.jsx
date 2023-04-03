@@ -3,7 +3,7 @@ import polygon from "../../assets/polygon.svg"
 import {Input} from "../../components/Input"
 import { Button } from "../../components/Button"
 import { ButtonText } from "../../components/ButtonText"
-export function SignIn() {
+export function SignOut() {
   return (
     <C.Container>
       <C.Logo>
@@ -11,7 +11,13 @@ export function SignIn() {
         <h1>food explorer</h1>
       </C.Logo>
     <C.Form>
-      <h1>Faça login</h1>
+      <h1>Crie sua conta</h1>
+      <Input 
+      label="Seu nome"
+      type="text" 
+      placeholder="Exemplo: Maria da Silva"
+      />
+
       <Input 
       label="E-mail"
       type="text" 
@@ -23,9 +29,9 @@ export function SignIn() {
       placeholder="No mínimo 6 caracteres"
       />
 
-      <Button text="Entrar"/>
+      <Button text="Criar conta"/>
 
-      <ButtonText text="Criar uma conta"/>
+      <ButtonText text="Já tenho uma conta"/>
     </C.Form>
    </C.Container>
   )
