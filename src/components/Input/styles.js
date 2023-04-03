@@ -29,4 +29,8 @@ export const Container = styled.div`
     input::placeholder{
         color: ${({theme}) => theme.COLORS.LIGHT_500}
     }
+
+    input:focus{
+        border: 1px solid ${({theme}) => theme.COLORS.LIGHT_400};
+    }
 `
