@@ -38,6 +38,8 @@ export const Form = styled.div`
 
     gap: 32px;
 
+    animation: slide-top 0.3s backwards;
+
     h1{
         display: none;
     }

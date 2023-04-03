@@ -39,6 +39,8 @@ export const Form = styled.div`
 
     gap: 32px;
 
+    animation: slide-bot 0.3s backwards;
+
     h1{
         display: none;
     }
