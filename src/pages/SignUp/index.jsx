@@ -3,7 +3,7 @@ import polygon from "../../assets/polygon.svg"
 import {Input} from "../../components/Input"
 import { Button } from "../../components/Button"
 import { ButtonText } from "../../components/ButtonText"
-export function SignOut() {
+export function SignUp() {
   return (
     <C.Container>
       <C.Logo>
@@ -31,7 +31,7 @@ export function SignOut() {
 
       <Button text="Criar conta"/>
 
-      <ButtonText text="Já tenho uma conta"/>
+      <ButtonText text="Já tenho uma conta" link="/"/>
     </C.Form>
    </C.Container>
   )

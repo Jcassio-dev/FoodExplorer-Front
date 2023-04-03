@@ -1,8 +1,12 @@
+import { useNavigate } from "react-router-dom"
+
 import * as C from "./styles"
 
-export function ButtonText({text, ...rest}){
+export function ButtonText({text, link, ...rest}){
+    const navigate = useNavigate();
+
     return(
-    <C.Container {...rest}>
+    <C.Container {...rest} onClick={() => navigate(link)}>
        {text}
     </C.Container>
     )
