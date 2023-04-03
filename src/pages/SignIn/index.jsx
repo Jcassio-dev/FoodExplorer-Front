@@ -1,6 +1,7 @@
 import * as C from "./styles";
 
 import polygon from "../../assets/polygon.svg";
+import chefAmico from "../../assets/amico.svg"
 
 import {Input} from "../../components/Input";
 import { Button } from "../../components/Button";
@@ -9,8 +10,13 @@ export function SignIn() {
   return (
     <C.Container>
       <C.Logo>
+        <div className="Logo">
         <img src={polygon} alt="Poligono"/>
         <h1>food explorer</h1>
+        </div>
+        <div className="SVG">
+        <img src={chefAmico} alt="Chef"/>
+        </div>
       </C.Logo>
     <C.Form>
       <h1>Faça login</h1>

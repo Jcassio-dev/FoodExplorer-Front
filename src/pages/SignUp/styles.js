@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 export const Container = styled.div`
-    width: 100%;
+    width: 100vw;
     height: 100vh;
 
     display: flex;
@@ -17,16 +17,35 @@ export const Container = styled.div`
 `
 
 export const Logo = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 10px;
 
-    margin-bottom: 73px;
-    h1{
-        font-size: 36px;
-        font-weight: 700;
-        line-height: 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .Logo{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        margin-bottom: 73px;
+
+        h1{
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 44px;
+        }
     }
+
+    .SVG{
+        display: none;
+    }
+
+@media (min-width: 1280px) {
+       .SVG {
+        display: block;
+       }
+    }
+
 `
 
 export const Form = styled.div`
