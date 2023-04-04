@@ -1,9 +1,11 @@
 import * as C from "./styles"
 
+import { Header } from '../../components/Header';
+
 export function Home(){
     return(
         <C.Container>
-            <h1>Home</h1>
+            <Header/>
         </C.Container>
     );
 }
