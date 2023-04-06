@@ -12,7 +12,7 @@ import { Input } from '../Input'
 
 
 
-export function Header(){
+export function Header({search}){
     const [dropMenu, setDropMenu] = useState(false);
 
     function handleMenu(){
@@ -50,7 +50,7 @@ export function Header(){
         <C.Menu className={dropMenu ? 'show' : 'hidden'}>
             <C.Search>
                 <FiSearch/>
-                <Input placeholder="Busque por pratos ou ingredientes"/>
+                <Input placeholder="Busque por pratos ou ingredientes" onChange={search}/>
             </C.Search>
             <ul>
                 <li>Favoritos</li>

@@ -8,7 +8,8 @@ export const Container = styled.div`
 
     label{
         font-size: 16px;
-        color: ${({theme}) => theme.COLORS.LIGHT_400}
+        color: ${({theme}) => theme.COLORS.LIGHT_400};
+        margin-bottom: 8px;
     }
 
     input{

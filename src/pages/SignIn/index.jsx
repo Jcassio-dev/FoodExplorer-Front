@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 import * as C from "./styles";
+
+import { useAuth } from '../../hooks/auth'
 
 import polygon from "../../assets/polygon.svg";
 import chefAmico from "../../assets/amico.svg"
@@ -6,7 +10,17 @@ import chefAmico from "../../assets/amico.svg"
 import {Input} from "../../components/Input";
 import { Button } from "../../components/Button";
 import { ButtonText } from "../../components/ButtonText";
+
 export function SignIn() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const { signIn } = useAuth();
+
+  function handleSignIn(){
+    signIn({email, password})
+  }
+
   return (
     <C.Container>
       <C.Logo>
@@ -24,14 +38,16 @@ export function SignIn() {
       label="E-mail"
       type="text" 
       placeholder="Exemplo: Exemplo@email.com.br"
+      onChange={e => setEmail(e.target.value)}
       />
       <Input 
       label="Senha"
       type="password" 
       placeholder="No mínimo 6 caracteres"
+      onChange={e => setPassword(e.target.value)}
       />
 
-      <Button text="Entrar"/>
+      <Button text="Entrar" onClick={handleSignIn}/>
 
       <ButtonText text="Criar uma conta" link="/register"/>
     </C.Form>
