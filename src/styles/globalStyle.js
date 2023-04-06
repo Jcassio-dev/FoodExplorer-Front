@@ -69,5 +69,17 @@ export default createGlobalStyle`
   }
 }
 
+@keyframes slide-menu {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-400px);
+    transform: translateX(-400px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
 
 `
