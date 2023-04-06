@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 import { api } from '../services/api';
 
@@ -13,6 +13,10 @@ function AuthProvider({children}) {
             const response = await api.post('/sessions', {email, password});
             const {user, token} = response.data;
 
+            
+            localStorage.setItem("@explorerfoods:user", JSON.stringify(user));
+            localStorage.setItem("@explorerfoods:token", token);
+
             api.defaults.headers.common['Authorization'] = `Barrer ${token}`;
             setData({user, token});
 
@@ -25,9 +29,28 @@ function AuthProvider({children}) {
         }
     }
 
+    async function signOut(){
+        localStorage.removeItem("@explorerfoods:token");
+        localStorage.removeItem("@explorerfoods:user");
+        
+        setData({});
+     }
+
+     useEffect(() => {
+        const token = localStorage.getItem("@explorerfoods:token")
+        const user = localStorage.getItem("@explorerfoods:user")
+
+        if(token && user){
+            api.defaults.headers.common['Authorization'] = `Barrer ${token}`
+            setData({
+                token,
+                user: JSON.parse(user)
+            })
+        }
+    }, [])
 
     return(
-        <AuthContext.Provider value={{signIn, user: data.user}}>
+        <AuthContext.Provider value={{signIn, signOut, user: data.user}}>
             {children}
         </AuthContext.Provider>
     )

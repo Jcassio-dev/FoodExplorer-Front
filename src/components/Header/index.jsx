@@ -9,7 +9,7 @@ import { FiMenu, FiSearch, FiX } from 'react-icons/fi';
 
 import { Input } from '../Input'
 
-
+import { useAuth } from '../../hooks/auth';
 
 
 export function Header({search}){
@@ -18,6 +18,8 @@ export function Header({search}){
     function handleMenu(){
         setDropMenu(!dropMenu);
     }
+
+    const { signOut } = useAuth(); 
 
 
     return(
@@ -53,8 +55,8 @@ export function Header({search}){
                 <Input placeholder="Busque por pratos ou ingredientes" onChange={search}/>
             </C.Search>
             <ul>
-                <li>Favoritos</li>
-                <li>Sair</li>
+                <li><C.IconButton>Favoritos</C.IconButton></li>
+                <li><C.IconButton onClick={signOut}>Sair</C.IconButton></li>
             </ul>
         </C.Menu>
     </C.Container>
