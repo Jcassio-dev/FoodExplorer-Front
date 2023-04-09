@@ -6,17 +6,24 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: flex-start;
 
+    position: relative;
+
     label{
         font-size: 16px;
         color: ${({theme}) => theme.COLORS.LIGHT_400};
-        margin-bottom: 8px;
+        position: absolute;
+        left: 10px;
+        top: -10px;
+        background-color: ${({theme}) => theme.COLORS.DARK_400};
+
     }
 
     input{
         height: 48px;
         width: 100%;
 
-        background: ${({theme}) => theme.COLORS.DARK_900};
+        border: 3px solid ${({theme}) => theme.COLORS.DARK_900};
+        background: none;
         padding: 0 14px;
         border-radius: 8px;
 
