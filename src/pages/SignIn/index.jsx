@@ -18,6 +18,15 @@ export function SignIn() {
   const { signIn } = useAuth();
 
   function handleSignIn(){
+    if(!email){
+      alert("Preencha o campo de e-mail");
+      return
+    }
+    if(!password){
+      alert("Preencha o campo de senha");
+      return
+    }
+
     signIn({email, password})
   }
 

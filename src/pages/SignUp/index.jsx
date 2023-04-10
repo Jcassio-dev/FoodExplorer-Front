@@ -17,6 +17,19 @@ export function SignUp() {
   const { signUp } = useAuth()
 
   function handleSignUp(){
+    if(!name){
+      alert("Preencha o campo de nome");
+      return
+    }
+    if(!email){
+      alert("Preencha o campo de e-mail");
+      return
+    }
+    if(!password){
+      alert("Preencha o campo de senha");
+      return
+    }
+    
     signUp({name, email, password})
   }
 
