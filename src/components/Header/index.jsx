@@ -30,7 +30,7 @@ export function Header({search}){
             </C.IconButton>
 
             <C.Logo>
-                    <img src={polygon} alt="Poligono"/>
+                    <img src={polygon} alt="Fígura plana hexagonal cinza"/>
                     <h1>food explorer</h1>
             </C.Logo>
 

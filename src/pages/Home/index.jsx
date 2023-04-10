@@ -5,6 +5,7 @@ import * as C from "./styles"
 import {api} from '../../services/api'
 
 import { Header } from '../../components/Header';
+import { Footer } from "../../components/Footer";
 
 
 
@@ -22,9 +23,14 @@ export function Home(){
         fetchFoods();
         console.log(foods)
     },  [search])
+
     return(
         <C.Container>
             <Header onClick={e => setSearch(e.target.value)}/>
+            <C.Content>
+                s
+            </C.Content>
+            <Footer/>
         </C.Container>
     );
 }
