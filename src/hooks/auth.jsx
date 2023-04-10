@@ -34,22 +34,7 @@ function AuthProvider({children}) {
         localStorage.removeItem("@explorerfoods:user");
         
         setData({});
-     }
-
-     async function signUp({name, email, password}){
-        try{
-            await api.post('/users', {name, email, password});
-            
-            signIn({email, password});
-
-        }catch(error){
-            if(error.response){
-                alert(error.response.data.message)
-            }else{
-                alert("Não foi possível criar uma conta!");
-            }
-        }
-     }
+     }      
 
      useEffect(() => {
         const token = localStorage.getItem("@explorerfoods:token")
@@ -65,7 +50,7 @@ function AuthProvider({children}) {
     }, [])
 
     return(
-        <AuthContext.Provider value={{signIn, signOut, signUp, user: data.user}}>
+        <AuthContext.Provider value={{signIn, signOut, user: data.user}}>
             {children}
         </AuthContext.Provider>
     )

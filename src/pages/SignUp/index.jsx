@@ -1,7 +1,11 @@
+import { useNavigate } from "react-router-dom"
+
 import * as C from "./styles"
 
 import polygon from "../../assets/polygon.svg"
 import chefAmico from "../../assets/amico.svg"
+
+import { api } from "../../services/api"
 
 import { Input } from "../../components/Input"
 import { Button } from "../../components/Button"
@@ -14,24 +18,43 @@ export function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const { signUp } = useAuth()
+  const navigate = useNavigate();
 
-  function handleSignUp(){
+  const { signIn } = useAuth();
+
+  async function handleSignUp(){
     if(!name){
-      alert("Preencha o campo de nome");
+      alert("Preencha o campo de nome!");
       return
     }
     if(!email){
-      alert("Preencha o campo de e-mail");
+      alert("Preencha o campo de e-mail!");
       return
     }
     if(!password){
-      alert("Preencha o campo de senha");
+      alert("Preencha o campo de senha!");
       return
     }
-    
-    signUp({name, email, password})
-  }
+    if(password.length < 6){
+      alert("A senha precisa ter 6 dígitos!");
+      return
+    }
+
+    try{
+      await api.post('/users', {name, email, password});
+      
+      signIn({email, password});
+
+      navigate('/');
+
+    }catch(error){
+        if(error.response){
+            alert(error.response.data.message)
+        }else{
+            alert("Não foi possível criar uma conta!");
+        }
+    }
+}
 
   return (
     <C.Container>
@@ -55,7 +78,7 @@ export function SignUp() {
 
       <Input 
       label="E-mail"
-      type="text" 
+      type="email" 
       placeholder="Exemplo: exemplo@email.com.br"
       onChange={e => setEmail(e.target.value)}
       />
