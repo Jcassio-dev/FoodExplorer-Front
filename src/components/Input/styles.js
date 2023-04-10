@@ -14,7 +14,7 @@ export const Container = styled.div`
         position: absolute;
         left: 10px;
         top: -10px;
-        background-color: ${({theme}) => theme.COLORS.DARK_400};
+        background-color: ${({theme}) => theme.COLORS.DARK_700};
 
     }
 
