@@ -14,14 +14,19 @@ import { Footer } from "../../components/Footer";
 export function Home(){
     const [search, setSearch] = useState(' ');
     const [foods, setFoods] = useState([]);
+    const [categories, setCategories] = useState([]);
 
     useEffect(() => {
         async function fetchFoods(){
             const response = await api.get(`/foods?title=${search}`);
             setFoods(response.data)
         }
-
         fetchFoods();
+
+        foods.map(food => setCategories([...categories, food.category]));
+        const filteredCategories = categories.filter((category, index) => categories.indexOf(category) === index);
+        console.log(filteredCategories)
+
     },  [search]);
 
     return(
