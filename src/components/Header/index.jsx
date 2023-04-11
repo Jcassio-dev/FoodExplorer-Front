@@ -12,7 +12,7 @@ import { Input } from '../Input'
 import { useAuth } from '../../hooks/auth';
 
 
-export function Header({search}){
+export function Header({onChange}){
     const [dropMenu, setDropMenu] = useState(false);
 
     function handleMenu(){
@@ -52,7 +52,7 @@ export function Header({search}){
         <C.Menu className={dropMenu ? 'show' : 'hidden'}>
             <C.Search>
                 <FiSearch/>
-                <Input placeholder="Busque por pratos ou ingredientes" onChange={search}/>
+                <Input placeholder="Busque por pratos ou ingredientes" onChange={onChange}/>
             </C.Search>
             <ul>
                 <li><C.IconButton>Favoritos</C.IconButton></li>

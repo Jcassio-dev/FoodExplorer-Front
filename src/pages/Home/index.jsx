@@ -12,23 +12,21 @@ import { Footer } from "../../components/Footer";
 
 
 export function Home(){
-
     const [search, setSearch] = useState(' ');
     const [foods, setFoods] = useState([]);
 
     useEffect(() => {
         async function fetchFoods(){
-            const response = await api.get(`/foods/2`);
+            const response = await api.get(`/foods?title=${search}`);
             setFoods(response.data)
-            
         }
+
         fetchFoods();
-        console.log(foods)
-    },  [search])
+    },  [search]);
 
     return(
         <C.Container>
-            <Header onClick={e => setSearch(e.target.value)}/>
+            <Header onChange={e => setSearch(e.target.value)}/>
             <C.Content>
                 <C.Info>
                     <div className="ImageDiv">
@@ -39,6 +37,8 @@ export function Home(){
                         <p>Sinta o cuidado do preparo com ingredientes selecionados.</p>
                     </div>
                 </C.Info>
+
+                
             </C.Content>
             <Footer/>
         </C.Container>
