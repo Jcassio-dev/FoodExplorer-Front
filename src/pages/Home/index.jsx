@@ -12,22 +12,31 @@ import { Footer } from "../../components/Footer";
 
 
 export function Home(){
-    const [search, setSearch] = useState(' ');
+    const [search, setSearch] = useState('');
     const [foods, setFoods] = useState([]);
     const [categories, setCategories] = useState([]);
-
+    const [filteredCategories, setFilteredCategories] = useState([])
+    
     useEffect(() => {
         async function fetchFoods(){
             const response = await api.get(`/foods?title=${search}`);
             setFoods(response.data)
         }
         fetchFoods();
-
-        foods.map(food => setCategories([...categories, food.category]));
-        const filteredCategories = categories.filter((category, index) => categories.indexOf(category) === index);
-        console.log(filteredCategories)
-
+        console.log(foods)
     },  [search]);
+
+    useEffect(() => {
+        function groupCategories(){
+            setCategories([])
+            const FilterFoodsCategories = foods.map(food =>  setCategories(prevState => [...prevState, food.category]));
+            const filterCategories = categories.filter((category, index) => categories.indexOf(category) === index);
+            console.log(filterCategories)
+            setFilteredCategories(filterCategories)
+        }
+        groupCategories();
+
+    }, [foods])
 
     return(
         <C.Container>
@@ -42,8 +51,9 @@ export function Home(){
                         <p>Sinta o cuidado do preparo com ingredientes selecionados.</p>
                     </div>
                 </C.Info>
-
-                
+                {foods && filteredCategories.map(category => (
+                    <h1>{category}</h1>
+                ))}
             </C.Content>
             <Footer/>
         </C.Container>
