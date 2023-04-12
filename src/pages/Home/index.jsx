@@ -17,12 +17,12 @@ export function Home(){
 
     useEffect(() => {
         async function fetchFoods(){
-            const response = await api.get(`/foods?title=${search}`);
-            setFoods(response.data)
+            await api.get(`/foods?title=${search}`)
+            .then(({data}) => setFoods(data))
+            console.log(foods)
         }
 
         fetchFoods();
-        console.log(foods)
     },  [search]);
 
     useEffect(() => {
@@ -49,9 +49,20 @@ export function Home(){
                         <p>Sinta o cuidado do preparo com ingredientes selecionados.</p>
                     </div>
                 </C.Info>
-                {foods && filteredCategories.map(category => (
-                    <h1>{category}</h1>
-                ))}
+
+                {
+                foods && filteredCategories.map((category, index) => (
+                    <C.Section key={String(index)}>
+                        <h1>{category}</h1>
+                        {
+                            foods && foods.filter(food => food.category == category).map(food => (
+                                <h1 key={String(food.id)}>{food.title}</h1>
+                            ))
+                        }
+                    </C.Section>
+                ))
+                }
+                
             </C.Content>
             <Footer/>
         </C.Container>

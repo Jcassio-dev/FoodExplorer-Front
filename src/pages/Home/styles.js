@@ -25,6 +25,10 @@ export const Content = styled.main`
     flex-direction: column;
     align-items: center;
 
+    gap: 24px;
+
+    padding-left: 24px;
+
 `
 
 
@@ -69,4 +73,25 @@ export const Info = styled.div`
             font-size: 12px;
         }
     }
+`
+
+export const Section = styled.section`
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+
+    gap: 24px;
+
+
+    h1{
+        font-family: 'Poppins';
+        font-weight: 500;
+        font-size: 18px;
+
+        color: ${({theme}) => theme.COLORS.LIGHT_300}
+    }
+
+
 `
