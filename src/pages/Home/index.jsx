@@ -9,19 +9,18 @@ import {api} from '../../services/api'
 import { Header } from '../../components/Header';
 import { Footer } from "../../components/Footer";
 
-
-
 export function Home(){
-    const [search, setSearch] = useState('');
+    const [search, setSearch] = useState("");
     const [foods, setFoods] = useState([]);
     const [categories, setCategories] = useState([]);
-    const [filteredCategories, setFilteredCategories] = useState([])
-    
+    const [filteredCategories, setFilteredCategories] = useState([]);
+
     useEffect(() => {
         async function fetchFoods(){
             const response = await api.get(`/foods?title=${search}`);
             setFoods(response.data)
         }
+
         fetchFoods();
         console.log(foods)
     },  [search]);
@@ -29,14 +28,13 @@ export function Home(){
     useEffect(() => {
         function groupCategories(){
             setCategories([])
-            const FilterFoodsCategories = foods.map(food =>  setCategories(prevState => [...prevState, food.category]));
+            foods.map(food =>  setCategories(prevState => [...prevState, food.category]));
             const filterCategories = categories.filter((category, index) => categories.indexOf(category) === index);
-            console.log(filterCategories)
             setFilteredCategories(filterCategories)
         }
         groupCategories();
 
-    }, [foods])
+    }, [foods]);
 
     return(
         <C.Container>
