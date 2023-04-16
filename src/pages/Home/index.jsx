@@ -13,13 +13,11 @@ export function Home(){
     const [search, setSearch] = useState("");
     const [foods, setFoods] = useState([]);
     const [categories, setCategories] = useState([]);
-    const [filteredCategories, setFilteredCategories] = useState([]);
+    const [fetch, setFetch] = useState(true);
 
     useEffect(() => {
         async function fetchFoods(){
-            await api.get(`/foods?title=${search}`)
-            .then(({data}) => setFoods(data))
-            console.log(foods)
+            await api.get(`/foods?title=${search}`).then(({data}) => {setFoods(data), setFetch(false)})
         }
 
         fetchFoods();
@@ -27,10 +25,11 @@ export function Home(){
 
     useEffect(() => {
         function groupCategories(){
-            setCategories([])
-            foods.map(food =>  setCategories(prevState => [...prevState, food.category]));
-            const filterCategories = categories.filter((category, index) => categories.indexOf(category) === index);
-            setFilteredCategories(filterCategories)
+            const filteredCategories = [];
+            const listFoods = foods.map(food =>  filteredCategories.push(food.category));
+            const deleteEqualCategories = filteredCategories.filter((category, index) => filteredCategories.indexOf(category) === index);
+            setCategories(deleteEqualCategories);
+            console.log(categories)
         }
         groupCategories();
 
@@ -51,7 +50,7 @@ export function Home(){
                 </C.Info>
 
                 {
-                foods && filteredCategories.map((category, index) => (
+                foods && categories.map((category, index) => (
                     <C.Section key={String(index)}>
                         <h1>{category}</h1>
                         {
