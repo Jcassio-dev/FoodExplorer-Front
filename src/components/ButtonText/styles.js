@@ -10,7 +10,9 @@ export const Container = styled.button`
     font-family: 'Poppins';
     font-weight: 500;
 
-    color: ${({theme}) => theme.COLORS.LIGHT_100}
+    color: ${({theme}) => theme.COLORS.LIGHT_100};
 
+    display: flex;
+    align-items: center;
 `
 
