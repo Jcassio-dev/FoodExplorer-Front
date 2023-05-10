@@ -4,31 +4,24 @@ export const Container = styled.div`
 height: 100vh;
 width: 100%;
 
-
+grid-template-rows: '100px 1fr';
 grid-template-areas: 
 "header"
 "content"
-"footer"
 ;
 
 `
 
 export const Content = styled.main`
     grid-area: content;
-
+    
     width: 100%;
-    height: 100vh;
-
-    overflow-y: auto;
 
     display: flex;
     flex-direction: column;
     align-items: center;
 
     gap: 24px;
-
-    padding-left: 24px;
-
 `
 
 
@@ -46,6 +39,8 @@ export const Info = styled.div`
     gap: 30px;
 
     border-radius: 3px;
+
+    margin-left: 24px;
 
     .ImageDiv{
         position: relative;
@@ -84,6 +79,7 @@ export const Section = styled.section`
 
     gap: 24px;
 
+    padding-left: 24px;
 
     h1{
         font-family: 'Poppins';

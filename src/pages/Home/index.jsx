@@ -8,6 +8,7 @@ import {api} from '../../services/api'
 
 import { Header } from '../../components/Header';
 import { Footer } from "../../components/Footer";
+import { FoodCard } from "../../components/FoodCard";
 
 export function Home(){
     const [search, setSearch] = useState("");
@@ -55,15 +56,14 @@ export function Home(){
                         <h1>{category}</h1>
                         {
                             foods && foods.filter(food => food.category == category).map(food => (
-                                <h1 key={String(food.id)}>{food.title}</h1>
+                                <FoodCard food={food} key={String(food.id)}/>
                             ))
                         }
                     </C.Section>
                 ))
                 }
-                
-            </C.Content>
-            <Footer/>
+                <Footer/>
+            </C.Content>        
         </C.Container>
     );
 }
