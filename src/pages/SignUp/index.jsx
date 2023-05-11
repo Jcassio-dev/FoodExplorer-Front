@@ -90,9 +90,9 @@ export function SignUp() {
       onChange={e => setPassword(e.target.value)}
       />
 
-      <Button text="Criar conta" onClick={handleSignUp}/>
+      <Button text="Criar conta" onClick={handleSignUp} type="button"/>
 
-      <ButtonText text="Já tenho uma conta" link="/"/>
+      <ButtonText text="Já tenho uma conta" link="/" type="button"/>
     </C.Form>
    </C.Container>
   )
