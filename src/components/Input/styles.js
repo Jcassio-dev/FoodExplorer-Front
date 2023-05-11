@@ -15,7 +15,9 @@ export const Container = styled.div`
         left: 10px;
         top: -10px;
         background-color: ${({theme}) => theme.COLORS.DARK_700};
-
+    }
+    .label{
+        background-color: ${({theme}) => theme.COLORS.DARK_400};
     }
 
     input{

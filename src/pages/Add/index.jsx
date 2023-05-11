@@ -1,5 +1,6 @@
 import * as C from './styles';
-import { AiOutlineLeft } from 'react-icons/ai'
+import { AiOutlineLeft, AiOutlineDownload } from 'react-icons/ai'
+
 
 import { Header } from '../../components/Header';
 import { ButtonText } from '../../components/ButtonText';
@@ -15,7 +16,30 @@ export function Add(){
             <C.Form>
                 <h1>Novo Prato</h1>
 
-                <Input label='nome' type='text' placeholder='Ex: Salada Ceasar'/>
+                <div className="inputWrapper food">
+                    <span>Imagem do prato</span>
+
+                    <label htmlFor="food-pic">
+                        <AiOutlineDownload/>
+                        <input 
+                        type='file' 
+                        id='food-pic'
+                        /> 
+
+                        <span>Selecione a Imagem</span>
+                    </label>
+                </div>
+                <Input label='nome' type='text' placeholder='Ex: Salada Ceasar' classname='label'/>
+                <div className="inputWrapper">
+                    <label htmlFor='categoria'>Categoria</label>
+                    <select name="categoria" id="categoria">
+                        <option value="Selecionar">Selecionar</option>
+                        <option value="Refeicao">Refeição</option>
+                        <option value="PratoPrincipal">Prato Principal</option>
+                        <option value="Bebida">Bebida</option>
+                    </select>
+                </div>
+
             </C.Form>
 
         </C.Content>

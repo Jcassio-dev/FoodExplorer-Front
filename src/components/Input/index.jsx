@@ -1,9 +1,9 @@
 import * as C from "./styles"
 
-export function Input({label, ...rest}){
+export function Input({label, classname, ...rest}){
     return(
     <C.Container>
-        <label>{label}</label>
+        <label className={classname}>{label}</label>
         <input {...rest}/>
     </C.Container>
     )
