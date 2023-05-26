@@ -10,10 +10,15 @@ grid-template-areas:
 "content"
 ;
 
+
+overflow-x: hidden;
+
 `
 
 export const Content = styled.main`
     grid-area: content;
+
+    margin-top: 100px;
     
     width: 100%;
 

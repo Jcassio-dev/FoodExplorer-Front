@@ -3,9 +3,16 @@ import styled from "styled-components";
 export const Container = styled.header`
     grid-area: header;
 
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+
+    z-index: 2;
+
     .mobile{
-        width: 100%;
-        padding: 32px 28px;
+        padding: 32px 30px;
 
         display: flex;
         align-items: center;
