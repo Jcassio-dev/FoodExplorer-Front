@@ -10,6 +10,7 @@ import { ButtonText } from '../../components/ButtonText';
 import { FoodIngredients } from '../../components/NoteItem';
 
 import { api } from '../../services/api';
+import { Footer } from '../../components/Footer';
 
 
 export function Add(){
@@ -43,25 +44,33 @@ export function Add(){
       function handleAddFood() {
         if(!category || !name || !ingredients || !price || !description) {
           toast.warn("Preencha todos os campos!")
-          console.log(category, name, ingredients, price, description)
           return;
         }
     
         const formData = new FormData();
+
         formData.append("category", category);
-        formData.append("picture", pictureFile);
-        formData.append("name", name);
+        formData.append("avatarFood", pictureFile);
+        formData.append("title", name);
         formData.append("price", price);
         formData.append("description", description);
         
-        ingredients.map(ingredient => (
-            formData.append("ingredients", ingredient)
-        ))
-    
+        for (let i = 0; i < ingredients.length; i += 1) {
+            formData.append("ingredients", ingredients[i]);
+          }
+
+        console.log(formData)
         api.post("/foods", formData)
         .then(() => {
-          toast.done("Prato criado com sucesso!");
+          toast.success("Prato criado com sucesso!");
         })
+        .catch((error) => {
+          if (error.response) {
+            toast.error(error.response.data.message);
+          } else {
+            toast.error("Erro ao criar o prato");
+          }
+        });
       }
     
     
@@ -78,11 +87,11 @@ export function Add(){
                 <div className="inputWrapper food">
                     <span>Imagem do prato</span>
 
-                    <label htmlFor="food-pic">
+                    <label htmlFor="avatar">
                         <AiOutlineDownload/>
                         <input 
                         type='file' 
-                        id='food-pic'
+                        id='avatar'
                         onChange={handlePictureFile}
                         /> 
 
@@ -105,9 +114,9 @@ export function Add(){
                     <label htmlFor='categoria'>Categoria</label>
                     <select name="categoria" id="categoria" value={category} onChange={e => {setCategory(e.target.value)}}>
                         <option value="">Selecionar</option>
-                        <option value="Refeicao">Refeição</option>
-                        <option value="PratoPrincipal">Prato Principal</option>
-                        <option value="Bebida">Bebida</option>
+                        <option value="Refeições">Refeição</option>
+                        <option value="Pratos Principais">Prato Principal</option>
+                        <option value="Bebidas">Bebida</option>
                     </select>
                 </div>
                 
@@ -148,8 +157,9 @@ export function Add(){
 
                 <Button add type="button" onClick={handleAddFood}>Salvar Alterações</Button>               
             </C.Form>
-
+            
         </C.Content>
+        <Footer/>
     </C.Container>
  )
 }
