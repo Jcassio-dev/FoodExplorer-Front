@@ -30,7 +30,7 @@ export function FoodCard({food}){
         <button onClick={IncreaseQuantity}><FiPlus/></button>
        </div>
 
-       <Button text='Incluir'/>
+       <Button>Incluir</Button>
     </C.Container>
     )
 }

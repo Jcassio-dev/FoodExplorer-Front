@@ -56,7 +56,7 @@ export function SignIn() {
       onChange={e => setPassword(e.target.value)}
       />
 
-      <Button text="Entrar" onClick={handleSignIn} type="button"/>
+      <Button onClick={handleSignIn} type="button">Entrar</Button>
 
       <ButtonText text="Criar uma conta" link="/register" type="button"/>
     </C.Form>
