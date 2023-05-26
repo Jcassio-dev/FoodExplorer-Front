@@ -54,11 +54,13 @@ export function Home(){
                 foods && categories.map((category, index) => (
                     <C.Section key={String(index)}>
                         <h1>{category}</h1>
+                        <div className="cards">
                         {
                             foods && foods.filter(food => food.category == category).map(food => (
                                 <FoodCard food={food} key={String(food.id)}/>
                             ))
                         }
+                        </div>
                     </C.Section>
                 ))
                 }

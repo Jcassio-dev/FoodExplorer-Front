@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 height: 100vh;
-width: 100%;
+width: 100vw;
 
 grid-template-rows: '100px 1fr';
 grid-template-areas: 
@@ -20,7 +20,7 @@ export const Content = styled.main`
 
     margin-top: 100px;
     
-    width: 100%;
+    width: 100vw;
 
     display: flex;
     flex-direction: column;
@@ -76,7 +76,7 @@ export const Info = styled.div`
 `
 
 export const Section = styled.section`
-    width: 100%;
+    width: calc(100vw - 24px);
 
     display: flex;
     flex-direction: column;
@@ -94,5 +94,14 @@ export const Section = styled.section`
         color: ${({theme}) => theme.COLORS.LIGHT_300}
     }
 
+    .cards{
+        width: 100%;
+
+        overflow-x: auto;
+        display: flex;
+        align-items: center;
+
+        gap: 16px;
+    }
 
 `

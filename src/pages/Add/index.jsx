@@ -95,7 +95,7 @@ export function Add(){
                         onChange={handlePictureFile}
                         /> 
 
-                        <span>Selecione a Imagem</span>
+                        <span>{pictureFile ? pictureFile.name : 'Selecione a Imagem'}</span>
                     </label>
                 </div>
 
@@ -116,6 +116,7 @@ export function Add(){
                         <option value="">Selecionar</option>
                         <option value="Refeições">Refeição</option>
                         <option value="Pratos Principais">Prato Principal</option>
+                        <option value="Sobremesas">Sobremesa</option>
                         <option value="Bebidas">Bebida</option>
                     </select>
                 </div>
