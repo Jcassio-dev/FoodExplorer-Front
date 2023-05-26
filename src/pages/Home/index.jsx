@@ -18,7 +18,7 @@ export function Home(){
 
     useEffect(() => {
         async function fetchFoods(){
-            await api.get(`/foods?title=${search}`).then(({data}) => {setFoods(data), setFetch(false)})
+            await api.get(`/foods?title=${search}`).then(({data}) => {setFoods(data.reverse()), setFetch(false)})
         }
 
         fetchFoods();
