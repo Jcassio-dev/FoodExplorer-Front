@@ -4,7 +4,7 @@ export const Container = styled.button`
     width: 100%;
     padding: 12px 0;
     
-    background-color: ${({theme}) => theme.COLORS.TOMATO_100};
+    background-color: ${({theme, exclude, add}) => add ? theme.COLORS.TOMATO_400 : exclude ? theme.COLORS.DARK_800 : theme.COLORS.TOMATO_100};
 
     border-radius: 5px;
 
