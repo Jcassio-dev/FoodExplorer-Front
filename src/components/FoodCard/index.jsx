@@ -12,7 +12,7 @@ export function FoodCard({food}){
     const [quantity, setQuantity] = useState(1);
 
     function ReduceQuantity(){
-       return quantity <= 1 ? alert('Prato já foi reduzido ao máximo') : setQuantity(prevState => --prevState);
+       return setQuantity(prevState => --prevState);
     }
     function IncreaseQuantity(){
        setQuantity(prevState => ++prevState)
@@ -25,7 +25,7 @@ export function FoodCard({food}){
        <h2>R$ {(food.price * quantity).toFixed(2)}</h2>
 
        <div>
-        <button onClick={ReduceQuantity}><FiMinus/></button>
+        <button onClick={ReduceQuantity} disabled={quantity <= 1}><FiMinus/></button>
         <span>{quantity < 10 ? `0${quantity}` : quantity}</span>
         <button onClick={IncreaseQuantity}><FiPlus/></button>
        </div>
