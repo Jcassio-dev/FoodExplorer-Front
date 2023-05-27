@@ -27,8 +27,8 @@ export function Header({onChange}){
     }
     
     function logOut(){
-        navigate('/');
         signOut()
+        navigate('/');
     }
 
 
