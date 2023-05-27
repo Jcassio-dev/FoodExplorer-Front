@@ -47,7 +47,28 @@ export const IconButton = styled.button`
       justify-content: center;
       align-items: center;
 
-      color: ${({theme}) => theme.COLORS.LIGHT_100}
+      color: ${({theme}) => theme.COLORS.LIGHT_100};
+
+      position: relative;
+
+      span{
+        background: ${({theme}) => theme.COLORS.TOMATO_100};
+        border-radius: 50%;
+
+        height: 20px;
+        width: 20px;
+
+        display: grid;
+        place-content: center;
+
+        font-family: 'Poppins';
+        font-weight: 500;
+        font-size: 14px;
+
+        position: absolute;
+        top: -5px;
+        right: -5px;
+      }
 `
 
 export const Logo = styled.div`

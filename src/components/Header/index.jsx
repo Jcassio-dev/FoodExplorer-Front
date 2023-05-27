@@ -36,6 +36,7 @@ export function Header({onChange}){
 
             <C.IconButton>
                 <img src={receipt} alt="Receita ícone"/>
+                <span>1</span>
             </C.IconButton>
         </div>
         <div className={dropMenu ? 'mobile MenuOn' : 'hidden'}>
