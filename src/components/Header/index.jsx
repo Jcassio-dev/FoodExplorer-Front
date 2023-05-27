@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 
 import * as C from './styles'
 
@@ -19,8 +20,9 @@ export function Header({onChange}){
         setDropMenu(!dropMenu);
     }
 
-    const { signOut } = useAuth(); 
+    const { signOut, favorites, user } = useAuth(); 
 
+    const navigate = useNavigate()
 
     return(
     <C.Container>
@@ -36,7 +38,7 @@ export function Header({onChange}){
 
             <C.IconButton>
                 <img src={receipt} alt="Receita ícone"/>
-                <span>1</span>
+                <span>{favorites.length}</span>
             </C.IconButton>
         </div>
         <div className={dropMenu ? 'mobile MenuOn' : 'hidden'}>
@@ -56,7 +58,10 @@ export function Header({onChange}){
                 <Input placeholder="Busque por pratos ou ingredientes" onChange={onChange}/>
             </C.Search>
             <ul>
-                <li><C.IconButton>Favoritos</C.IconButton></li>
+                {user && user.isAdmin === 1 ?
+                    <li><C.IconButton onClick={() => navigate('/add')}>Novo Prato</C.IconButton></li> :
+                    null
+                } 
                 <li><C.IconButton onClick={signOut}>Sair</C.IconButton></li>
             </ul>
         </C.Menu>
