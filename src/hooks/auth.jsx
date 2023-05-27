@@ -6,8 +6,9 @@ export const AuthContext = createContext({});
 
 
 function AuthProvider({children}) {
-    const [data, setData] = useState({})
-
+    const [data, setData] = useState({});
+    const [favorites, setFavorites] = useState([]);
+      
     async function signIn({ email, password }){
         try{
             const response = await api.post('/sessions', {email, password});
@@ -39,6 +40,7 @@ function AuthProvider({children}) {
      useEffect(() => {
         const token = localStorage.getItem("@explorerfoods:token")
         const user = localStorage.getItem("@explorerfoods:user")
+        const favorites = localStorage.getItem("@explorerfoods:favorites")
 
         if(token && user){
             api.defaults.headers.common['Authorization'] = `Bearer ${token}`
@@ -47,10 +49,14 @@ function AuthProvider({children}) {
                 user: JSON.parse(user)
             })
         }
+
+        if(favorites){
+            setFavorites(JSON.parse(favorites));
+        }
     }, [])
 
     return(
-        <AuthContext.Provider value={{signIn, signOut, user: data.user}}>
+        <AuthContext.Provider value={{signIn, signOut, user: data.user, favorites, setFavorites}}>
             {children}
         </AuthContext.Provider>
     )
