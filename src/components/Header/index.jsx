@@ -22,7 +22,9 @@ export function Header({onChange}){
 
     const { signOut, favorites, user } = useAuth(); 
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    const isAdmin = user.isAdmin === 1;
 
     return(
     <C.Container>
@@ -33,7 +35,7 @@ export function Header({onChange}){
 
             <C.Logo>
                     <img src={polygon} alt="Fígura plana hexagonal cinza"/>
-                    <h1>food explorer</h1>
+                    <h1>food explorer {user && isAdmin && <span>admin</span>}</h1>
             </C.Logo>
 
             <C.IconButton>
@@ -58,9 +60,8 @@ export function Header({onChange}){
                 <Input placeholder="Busque por pratos ou ingredientes" onChange={onChange}/>
             </C.Search>
             <ul>
-                {user && user.isAdmin === 1 ?
-                    <li><C.IconButton onClick={() => navigate('/add')}>Novo Prato</C.IconButton></li> :
-                    null
+                {user && isAdmin &&
+                    <li><C.IconButton onClick={() => navigate('/add')}>Novo Prato</C.IconButton></li>
                 } 
                 <li><C.IconButton onClick={signOut}>Sair</C.IconButton></li>
             </ul>

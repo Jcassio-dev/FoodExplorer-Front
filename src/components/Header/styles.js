@@ -80,6 +80,18 @@ export const Logo = styled.div`
             font-size: 21px;
             font-weight: 700;
             line-height: 25px;
+
+            display: flex;
+            align-items: start;
+            gap: 8px;
+
+            span{
+                font-family: 'Roboto';
+                font-weight: 400;
+                font-size: 12px;
+
+                color: ${({theme}) => theme.COLORS.CAKE_200};
+            }
         }
 
         img{
