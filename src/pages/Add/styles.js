@@ -15,6 +15,8 @@ export const Container = styled.div`
 export const Content = styled.main`
     grid-area: content;
 
+    margin-top: 100px;
+
     width: 100%;
 
     padding: 11px 32px;
