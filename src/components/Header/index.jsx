@@ -16,15 +16,21 @@ import { useAuth } from '../../hooks/auth';
 export function Header({onChange}){
     const [dropMenu, setDropMenu] = useState(false);
 
-    function handleMenu(){
-        setDropMenu(!dropMenu);
-    }
-
     const { signOut, favorites, user } = useAuth(); 
 
     const navigate = useNavigate();
 
     const isAdmin = user.isAdmin === 1;
+
+    function handleMenu(){
+        setDropMenu(!dropMenu);
+    }
+    
+    function logOut(){
+        navigate('/');
+        signOut()
+    }
+
 
     return(
     <C.Container>
@@ -63,7 +69,7 @@ export function Header({onChange}){
                 {user && isAdmin &&
                     <li><C.IconButton onClick={() => navigate('/add')}>Novo Prato</C.IconButton></li>
                 } 
-                <li><C.IconButton onClick={signOut}>Sair</C.IconButton></li>
+                <li><C.IconButton onClick={logOut}>Sair</C.IconButton></li>
             </ul>
         </C.Menu>
     </C.Container>
