@@ -18,16 +18,7 @@ export const Container = styled.div`
     position: relative;
 
 
-    .favorite{
-        width: 22px;
-        height: 24px;
 
-        position: absolute;
-        top: 16px;
-        right: 16px;
-
-        cursor: pointer;
-    }
 
     img{
         width: 88px;
