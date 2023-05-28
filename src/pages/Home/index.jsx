@@ -18,7 +18,7 @@ export function Home(){
 
     useEffect(() => {
         async function fetchFoods(){
-            await api.get(`/foods?title=${search}`).then(({data}) => {setFoods(data.reverse()), setFetch(false)})
+            await api.get(`/foods?title=${search}`).then(({data}) => {setFoods(data), setFetch(false)})
         }
 
         fetchFoods();
@@ -39,7 +39,8 @@ export function Home(){
     return(
         <C.Container>
             <Header onChange={e => setSearch(e.target.value)}/>
-            <C.Content>
+        { fetch ? 'Carregando...':            
+        <C.Content>
                 <C.Info>
                     <div className="ImageDiv">
                     <img src={ContentImage} alt="Macarons voando de diversas cores"/>
@@ -65,7 +66,8 @@ export function Home(){
                 ))
                 }
                 <Footer/>
-            </C.Content>        
+            </C.Content>      
+            }  
         </C.Container>
     );
 }

@@ -20,7 +20,7 @@ export function Header({onChange}){
 
     const navigate = useNavigate();
 
-    const isAdmin = user.isAdmin === 1;
+    const isAdmin = user && user.isAdmin === 1;
 
     function handleMenu(){
         setDropMenu(!dropMenu);
@@ -34,7 +34,7 @@ export function Header({onChange}){
 
     return(
     <C.Container>
-        <div className={!dropMenu ? 'mobile menuFalse' : 'hidden'}>
+        <div className={!dropMenu ? `mobile ${!isAdmin? 'menuFalse' : 'MenuOn'}` : 'hidden' }>
             <C.IconButton onClick={handleMenu}>
                 <FiMenu/>
             </C.IconButton>
@@ -44,10 +44,12 @@ export function Header({onChange}){
                     <h1>food explorer {user && isAdmin && <span>admin</span>}</h1>
             </C.Logo>
 
+            {  !isAdmin &&       
             <C.IconButton>
                 <img src={receipt} alt="Receita ícone"/>
                 <span>{favorites.length}</span>
             </C.IconButton>
+            }
         </div>
         <div className={dropMenu ? 'mobile MenuOn' : 'hidden'}>
             <C.IconButton onClick={handleMenu}>
