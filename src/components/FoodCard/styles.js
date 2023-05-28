@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+    min-width: 230px;
     width: 230px;
-
+    
     padding: 24px;
 
     background: ${({theme}) => theme.COLORS.DARK_200};
@@ -16,8 +17,6 @@ export const Container = styled.div`
     align-items: center;
 
     position: relative;
-
-
 
 
     img{

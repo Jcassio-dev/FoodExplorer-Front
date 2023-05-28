@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { FiPlus, FiMinus,} from 'react-icons/fi'
-import { AiOutlineHeart, AiFillHeart,} from 'react-icons/ai'
+
 
 import * as C from "./styles";
 
@@ -9,12 +9,15 @@ import { useAuth } from "../../hooks/auth";
 
 import { Button } from "../Button";
 import { FavoriteButton } from "../FavoriteButton";
+import { EditButton } from "../EditButton";
 
 export function FoodCard({food}){
     const avatarUrl = food.avatarFood ? `${api.defaults.baseURL}/files/${food.avatarFood}` : null
     const [quantity, setQuantity] = useState(1);
 
     const { user } = useAuth();
+
+    const isAdmin = user && user.isAdmin === 1
 
     function ReduceQuantity(){
        return setQuantity(prevState => --prevState);
@@ -26,7 +29,8 @@ export function FoodCard({food}){
 
     return(
     <C.Container>
-      <FavoriteButton food={food}/>
+      {isAdmin ? <EditButton food={food}/> : <FavoriteButton food={food}/>}
+      
       
         <img src={avatarUrl} alt="Foto da comida" />
        <h1>{food.title} &gt;</h1>
