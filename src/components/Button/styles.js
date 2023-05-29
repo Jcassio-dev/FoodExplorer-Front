@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.button`
     width: 100%;
-    padding: 12px 0;
+    padding: 12px;
     
     background-color: ${({theme, exclude, add}) => add ? theme.COLORS.TOMATO_400 : exclude ? theme.COLORS.DARK_800 : theme.COLORS.TOMATO_100};
 
@@ -12,7 +12,9 @@ export const Container = styled.button`
     line-height: 24px;
     font-family: 'Poppins';
     font-weight: 500;
-    color: ${({theme}) => theme.COLORS.LIGHT_100}
+    color: ${({theme}) => theme.COLORS.LIGHT_100};
+
+
 
 `
 

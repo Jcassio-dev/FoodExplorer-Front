@@ -24,13 +24,15 @@ export const Container = styled.div`
         height: 88px;
     }
 
-    h1{
+    a{
         font-family: 'Poppins';
         font-weight: 500;
         font-size: 14px;
         line-height: 24px;
         text-align: center;
 
+        text-decoration: none;
+        
         color: ${({theme}) => theme.COLORS.LIGHT_300};
 
         display: flex;

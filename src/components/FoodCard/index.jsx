@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FiPlus, FiMinus,} from 'react-icons/fi'
-
 
 import * as C from "./styles";
 
@@ -14,6 +14,8 @@ import { EditButton } from "../EditButton";
 export function FoodCard({food}){
     const avatarUrl = food.avatarFood ? `${api.defaults.baseURL}/files/${food.avatarFood}` : null
     const [quantity, setQuantity] = useState(1);
+    
+    const navigate = useNavigate();
 
     const { user } = useAuth();
 
@@ -33,7 +35,7 @@ export function FoodCard({food}){
       
       
         <img src={avatarUrl} alt="Foto da comida" />
-       <h1>{food.title} &gt;</h1>
+         <a onClick={() => navigate(`/details/${food.id}`)}>{food.title} &gt;</a>
 
        <h2>R$ {(food.price * quantity).toFixed(2)}</h2>
       {user && user.isAdmin !== 1 &&
