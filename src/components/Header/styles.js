@@ -11,6 +11,38 @@ export const Container = styled.header`
 
     z-index: 2;
 
+    .desktop{
+        padding: 28px 120px;
+
+        display: none;
+
+        grid-template-columns: 180px 581px 216px 30px;
+
+        align-items: center;
+        justify-content: space-evenly;
+
+        gap: 32px;
+        
+        background: ${({theme}) => theme.COLORS.DARK_700};
+
+        .addCart{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 3px;
+
+            img{
+                width: 26px;
+                height: 22px;
+
+                display: grid;
+                place-content: center;
+
+            }
+        }
+    }
+
     .mobile{
         padding: 32px 30px;
 
@@ -21,6 +53,7 @@ export const Container = styled.header`
         background: ${({theme}) => theme.COLORS.DARK_700};
 
         transition: ease 0.3s;
+
     }
 
     .MenuOn{
@@ -37,6 +70,14 @@ export const Container = styled.header`
         display: flex;
     }
 
+    @media (min-width: 1280px) {
+        .mobile{
+            display: none;
+        }
+        .desktop{
+            display: grid;
+        }
+    }
 `
 
 export const IconButton = styled.button`
@@ -69,6 +110,11 @@ export const IconButton = styled.button`
         top: -5px;
         right: -5px;
       }
+
+      
+    @media (min-width: 1280px) {
+        font-size: 22px;
+    }
 `
 
 export const Logo = styled.div`

@@ -6,11 +6,13 @@ import * as C from './styles'
 import polygon from "../../assets/polygon.svg";
 import receipt from "../../assets/Receipt.svg";
 
-import { FiMenu, FiSearch, FiX } from 'react-icons/fi';
+import { FiMenu, FiSearch, FiX, FiLogOut } from 'react-icons/fi';
 
 import { Input } from '../Input'
+import { Button } from '../Button'
 
 import { useAuth } from '../../hooks/auth';
+import { SearchInput } from '../SearchInput';
 
 
 export function Header({onChange}){
@@ -34,6 +36,25 @@ export function Header({onChange}){
 
     return(
     <C.Container>
+        <div className='desktop'>
+            <C.Logo>
+                <img src={polygon} alt="Fígura plana hexagonal cinza"/>
+                <h1>food explorer {user && isAdmin && <span>admin</span>}</h1>
+            </C.Logo>
+
+            <SearchInput onChange={onChange}/>
+
+            <Button>
+                <div className='addCart'>
+                    <img src={receipt} alt="notinha"/>
+                     Pedidos (0)
+                </div>
+            </Button>
+
+            <C.IconButton onClick={logOut}>
+                <FiLogOut/>
+            </C.IconButton>
+        </div>
         <div className={!dropMenu ? `mobile ${!isAdmin? 'menuFalse' : 'MenuOn'}` : 'hidden' }>
             <C.IconButton onClick={handleMenu}>
                 <FiMenu/>
