@@ -47,7 +47,7 @@ export const Info = styled.div`
 
     margin-left: 24px;
 
-    .ImageDiv{
+    .ImageMobileDiv{
         position: relative;
         width: 191px;
         height: 141px;
@@ -57,6 +57,21 @@ export const Info = styled.div`
 
             left: -30px;
             top: -18px;
+        }
+    }
+
+    .ImageDesktopDiv{
+        position: relative;
+        width: 600px;
+        height: 400px;
+
+        display: none;
+
+        img{
+            position: absolute;
+
+            left: -68px;
+            top: -70px;
         }
     }
     
@@ -72,6 +87,33 @@ export const Info = styled.div`
             font-weight: 400;
             font-size: 12px;
         }
+    }
+
+    @media (min-width: 1280px) {
+        width: 1120px;
+        height: 260px;
+
+        margin: 164px 0 62px;
+
+        gap: 0px;
+
+        .ImageMobileDiv{
+            display: none;
+        }
+        .ImageDesktopDiv{
+            display: block;
+        }
+
+        .InfoText{
+            h2{
+                font-weight: 500;
+                font-size: 40px;
+            }
+            p{
+                font-size: 16px;
+            }
+    }
+        
     }
 `
 

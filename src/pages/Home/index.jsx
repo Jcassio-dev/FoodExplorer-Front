@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 
 import * as C from "./styles"
 
-import ContentImage from '../../assets/Foods.png'
+import ContentMobileImage from '../../assets/Foods.png'
+import ContentDesktopImage from '../../assets/contentImage.png'
 
 import {api} from '../../services/api'
 
@@ -42,8 +43,11 @@ export function Home(){
         { fetch ? 'Carregando...':            
         <C.Content>
                 <C.Info>
-                    <div className="ImageDiv">
-                    <img src={ContentImage} alt="Macarons voando de diversas cores"/>
+                    <div className="ImageMobileDiv">
+                        <img src={ContentMobileImage} alt="Macarons voando de diversas cores"/>
+                    </div>
+                    <div className="ImageDesktopDiv">
+                        <img src={ContentDesktopImage} alt="Macarons voando de diversas cores"/>
                     </div>
                     <div className="InfoText">
                         <h2>sabores inigualáveis</h2>
