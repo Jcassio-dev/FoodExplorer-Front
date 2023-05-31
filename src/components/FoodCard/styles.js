@@ -14,7 +14,9 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     gap: 12px;
+    
     align-items: center;
+    place-content: center;
 
     position: relative;
 
@@ -25,6 +27,8 @@ export const Container = styled.div`
     }
 
     a{
+        width: 100%;
+
         font-family: 'Poppins';
         font-weight: 500;
         font-size: 14px;
@@ -37,6 +41,18 @@ export const Container = styled.div`
 
         display: flex;
         align-items: center;
+        justify-content: center;
+    }
+    p{
+        display: none;
+
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 160%;
+        text-align: center;
+
+        color: ${({theme}) => theme.COLORS.LIGHT_400};
+
     }
 
     h2{
@@ -48,7 +64,13 @@ export const Container = styled.div`
         color: ${({theme}) => theme.COLORS.CAKE_200};
     }
 
-    div{
+    .controls{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 22px;
+    }
+    .quantity{
         display: flex;
         align-items: center;
         gap: 18px;
@@ -68,6 +90,8 @@ export const Container = styled.div`
 
             color: ${({theme})=> theme.COLORS.LIGHT_300};
             font-size: 20px;
+
+            padding: 0;
         }
     }
 
@@ -75,6 +99,52 @@ export const Container = styled.div`
         padding: 4px 0;
     }
 
+
+    @media (min-width: 1280px) {
+        min-width: 304px;
+        width: 304px;
+        height: 462px;
+
+        img{
+            width: 176px;
+            height: 176px;
+        }
+
+        a{
+            font-size: 24px;
+        }
+
+        p{
+            display: block;
+        }
+
+        h2{
+            font-size: 32px;
+        }
+        
+        .controls{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+
+            button{
+                padding: 12px 24px;
+            }
+        }
+
+        .quantity{
+            gap: 16px;
+
+            font-size: 20px;
+            
+            button{
+                padding: 0;
+            }
+        }
+
+    }
 
 `
 

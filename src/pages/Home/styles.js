@@ -146,4 +146,13 @@ export const Section = styled.section`
         gap: 16px;
     }
 
+    @media (min-width: 1280px) {
+        width: 1122px;
+        margin: 0 auto;
+
+        h1{
+            font-size: 32px;
+        }
+    }
+
 `

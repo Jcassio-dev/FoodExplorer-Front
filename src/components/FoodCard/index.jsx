@@ -36,18 +36,18 @@ export function FoodCard({food}){
       
         <img src={avatarUrl} alt="Foto da comida" />
          <a onClick={() => navigate(`/details/${food.id}`)}>{food.title} &gt;</a>
-
+         <p>{food.description}</p>
        <h2>R$ {(food.price * quantity).toFixed(2)}</h2>
       {user && user.isAdmin !== 1 &&
-      <>
-       <div>
+      <div className="controls">
+       <div className="quantity">
         <button onClick={ReduceQuantity} disabled={quantity <= 1}><FiMinus/></button>
         <span>{quantity < 10 ? `0${quantity}` : quantity}</span>
         <button onClick={IncreaseQuantity}><FiPlus/></button>
        </div>
 
        <Button>Incluir</Button>
-       </>
+       </div>
       }
     </C.Container>
     )
