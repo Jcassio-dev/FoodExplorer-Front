@@ -16,7 +16,7 @@ export const Container = styled.header`
 
         display: none;
 
-        grid-template-columns: 180px 581px 216px 30px;
+        grid-template-columns: 210px 581px 216px 30px;
 
         align-items: center;
         justify-content: space-evenly;
