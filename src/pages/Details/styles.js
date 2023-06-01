@@ -27,6 +27,12 @@ export const Content = styled.main`
     align-items: center;
     gap: 48px;
 
+    .page{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 
     img{
         height: 264px;
@@ -49,6 +55,8 @@ export const Content = styled.main`
             line-height: 140%;
 
             color: ${({theme}) => theme.COLORS.LIGHT_300};
+
+            margin-top: 16px;
         }
 
         p{
@@ -96,6 +104,8 @@ export const Content = styled.main`
         gap: 15px;
         width: 316px;
 
+        margin-top: 48px;
+
         >div{
             display: flex;
             align-items: center;
@@ -138,6 +148,53 @@ export const Content = styled.main`
 
             margin-top: 2px;
         }
+    }
+
+    @media (min-width: 1280px) {
+        padding: 24px 123px;
+
+        .page{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            gap: 47px;
+
+            height: 80%;
+        }
+
+        img{
+            width: 389px;
+            height: 389px;
+        }
+
+        .infos{
+            width: 690px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            h1{
+                font-size: 40px;
+            }
+
+            p{
+                font-size: 24px;
+                text-align: justify;
+            }
+            .ingredients{
+                width: 100%;
+                
+                align-items: flex-start;
+                justify-content: flex-start;
+                gap: 12px;
+
+                padding: 0;
+            }
+        }
+
     }
 
     

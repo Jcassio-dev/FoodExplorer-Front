@@ -64,39 +64,42 @@ export function Details(){
         <Header/>
         <C.Content>
             <ButtonText text={`Voltar`} icon={AiOutlineLeft} link={'/'}/>
-            <img src={avatarFood} alt="Imagem do prato"/>
-
-            <div className='infos'>
-                <h1>{name}</h1>
-                <p>{description}</p>
-                <div className='ingredients'>
-                    { ingredients && ingredients.map( ingredient => (
-                        <span key={ingredient}>{ingredient}</span>
-                    ))}
-                </div>
-            </div>
-
-            <div className='controls'>
-            { isAdmin ? 
-                <Button onClick={() => navigate(`/edit/${params.id}`)}>
-                    Editar Prato
-                </Button>
-                :
-                <>
-                    <div>
-                        <button onClick={ReduceQuantity} disabled={quantity <= 1}><FiMinus/></button>
-                        <span>{quantity < 10 ? `0${quantity}` : quantity}</span>
-                        <button onClick={IncreaseQuantity}><FiPlus/></button>
+            <div className='page'>
+                <img src={avatarFood} alt="Imagem do prato"/>
+                <div>
+                    <div className='infos'>
+                        <h1>{name}</h1>
+                        <p>{description}</p>
+                        <div className='ingredients'>
+                            { ingredients && ingredients.map( ingredient => (
+                                <span key={ingredient}>{ingredient}</span>
+                            ))}
+                        </div>
                     </div>
 
-                    <Button>
-                        <div className='addCart'>
-                            <img src={receipt} alt="notinha"/>
-                            pedir ∙ R$ {(price * quantity).toFixed(2)}
-                        </div>
-                    </Button>
-                </>
-            }
+                    <div className='controls'>
+                    { isAdmin ? 
+                        <Button onClick={() => navigate(`/edit/${params.id}`)}>
+                            Editar Prato
+                        </Button>
+                        :
+                        <>
+                            <div>
+                                <button onClick={ReduceQuantity} disabled={quantity <= 1}><FiMinus/></button>
+                                <span>{quantity < 10 ? `0${quantity}` : quantity}</span>
+                                <button onClick={IncreaseQuantity}><FiPlus/></button>
+                            </div>
+
+                            <Button>
+                                <div className='addCart'>
+                                    <img src={receipt} alt="notinha"/>
+                                    pedir ∙ R$ {(price * quantity).toFixed(2)}
+                                </div>
+                            </Button>
+                        </>
+                    }
+                    </div>
+                </div>
             </div>
         </C.Content>
         <Footer/>
