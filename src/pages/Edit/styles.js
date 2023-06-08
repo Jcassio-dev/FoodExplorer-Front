@@ -25,6 +25,11 @@ export const Content = styled.main`
     flex-direction: column;
     align-items: center;
     gap: 20px;
+
+
+    @media (min-width: 1280px){
+        padding: 11px 123px;
+    }
 `
 
 export const Form = styled.div`
@@ -34,6 +39,23 @@ export const Form = styled.div`
     align-items: flex-start;
     flex-direction: column;
     gap: 20px;
+
+    .col-3{
+        width: 100%;
+
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .col-2{
+        width: 100%;
+
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+    }
 
     .inputWrapper{
         width: 100%;
@@ -181,6 +203,29 @@ export const Form = styled.div`
         align-items: center;
         gap: 10px;
     }
+
+    
+    @media (min-width: 1280px) {
+        .col-3{
+            display: grid;
+            grid-template-columns: 260px 1fr 400px;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .col-2{
+            display: grid;
+            grid-template-columns: 1fr 251px;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .doubleButton{
+            display: grid;
+            grid-template-columns: 135px 172px;
+            justify-content: flex-end;
+        }
+    }
 `
 
 export const Section = styled.section`
@@ -203,7 +248,7 @@ export const Section = styled.section`
 
     > div {
         width: 100%;
-        padding: 16px;
+        height: 48px;
 
         display: flex;
         align-items: center;

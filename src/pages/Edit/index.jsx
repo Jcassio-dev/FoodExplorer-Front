@@ -121,72 +121,76 @@ export function Edit(){
 
             <C.Form>
                 <h1>Editar Prato</h1>
+                <div className='col-3'>
+                  <div className="inputWrapper food">
+                      <span>Imagem do prato</span>
 
-                <div className="inputWrapper food">
-                    <span>Imagem do prato</span>
+                      <label htmlFor="avatarFood">
+                          <AiOutlineDownload/>
+                          <input 
+                          type='file' 
+                          id='avatarFood'
+                          onChange={handlePictureFile}
+                          /> 
 
-                    <label htmlFor="avatarFood">
-                        <AiOutlineDownload/>
-                        <input 
-                        type='file' 
-                        id='avatarFood'
-                        onChange={handlePictureFile}
-                        /> 
+                          <span>{avatarFood ? avatarFood.name : 'Selecione a Imagem'}</span>
+                      </label>
+                  </div>
 
-                        <span>{avatarFood ? avatarFood.name : 'Selecione a Imagem'}</span>
-                    </label>
-                </div>
+                  <div className="inputWrapper">
+                      <label htmlFor="name">Nome</label>
+                      <input 
+                      type="text" 
+                      id='name' 
+                      placeholder='Ex.: Salada Ceasar'
+                      value={name}
+                      onChange={e => setName(e.target.value)}
+                      />
+                  </div>
 
-                <div className="inputWrapper">
-                    <label htmlFor="name">Nome</label>
-                    <input 
-                    type="text" 
-                    id='name' 
-                    placeholder='Ex.: Salada Ceasar'
-                    value={name}
-                    onChange={e => setName(e.target.value)}
-                    />
-                </div>
-
-                <div className="inputWrapper select">
-                    <label htmlFor='categoria'>Categoria</label>
-                    <select name="categoria" id="categoria" value={category} onChange={e => {setCategory(e.target.value)}}>
-                        <option value="">Selecionar</option>
-                        <option value="Refeições">Refeição</option>
-                        <option value="Pratos Principais">Prato Principal</option>
-                        <option value="Sobremesas">Sobremesa</option>
-                        <option value="Bebidas">Bebida</option>
-                    </select>
+                  <div className="inputWrapper select">
+                      <label htmlFor='categoria'>Categoria</label>
+                      <select name="categoria" id="categoria" value={category} onChange={e => {setCategory(e.target.value)}}>
+                          <option value="">Selecionar</option>
+                          <option value="Refeições">Refeição</option>
+                          <option value="Pratos Principais">Prato Principal</option>
+                          <option value="Sobremesas">Sobremesa</option>
+                          <option value="Bebidas">Bebida</option>
+                      </select>
+                  </div>
                 </div>
                 
-                <C.Section>
-                    <label>Ingredientes</label>
-                    <div>
-                        {ingredients &&
-                            ingredients.map((ingredient, index) => (
-                                <FoodIngredients key={String(index)} value={ingredient} width={ingredient.length * 8.5} onClick={() => handleRemoveIngredient(ingredient)}/>
-                            ))
-                        }
-                        
-                        <FoodIngredients 
-                        isNew={true} 
-                        value={newIngredient} 
-                        onChange={e => setNewIngredient(e.target.value)} 
-                        onClick={handleAddIngredient}
-                        width={100}
-                        placeholder='Adicionar'/>
-                    </div>
-                </C.Section>
-                
-                <div className="inputWrapper">
-                    <label htmlFor="price">Preço</label>
-                    <input 
-                    type="number" 
-                    id='price' 
-                    placeholder='R$: 00.00'
-                    value={price}
-                    onChange={e => setPrice(e.target.value)}
-                    />
+
+                <div className="col-2">    
+                  <C.Section>
+                      <label>Ingredientes</label>
+                      <div>
+                          {ingredients &&
+                              ingredients.map((ingredient, index) => (
+                                  <FoodIngredients key={String(index)} value={ingredient} width={ingredient.length * 8.5} onClick={() => handleRemoveIngredient(ingredient)}/>
+                              ))
+                          }
+                          
+                          <FoodIngredients 
+                          isNew={true} 
+                          value={newIngredient} 
+                          onChange={e => setNewIngredient(e.target.value)} 
+                          onClick={handleAddIngredient}
+                          width={100}
+                          placeholder='Adicionar'/>
+                      </div>
+                  </C.Section>
+                  
+                  <div className="inputWrapper">
+                      <label htmlFor="price">Preço</label>
+                      <input 
+                      type="number" 
+                      id='price' 
+                      placeholder='R$: 00.00'
+                      value={price}
+                      onChange={e => setPrice(e.target.value)}
+                      />
+                  </div>
                 </div>
 
                 <div className="inputWrapper textarea">
@@ -195,7 +199,7 @@ export function Edit(){
                 </div>
 
                 <div className='doubleButton'>
-                <Button exclude type="button" onClick={handleDeleteFood}>Excluir</Button>     
+                <Button exclude type="button" onClick={handleDeleteFood}>Excluir Prato</Button>     
                 <Button add type="button" onClick={handleUpdateFood}>Salvar Alterações</Button>     
                 </div>
           
