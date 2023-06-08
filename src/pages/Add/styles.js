@@ -213,9 +213,10 @@ export const Form = styled.div`
             gap: 32px;
         }
 
-        .doubleButton{
+        .push{
+            width: 100%;
             display: grid;
-            grid-template-columns: 135px 172px;
+            grid-template-columns: 172px;
             justify-content: flex-end;
         }
     }

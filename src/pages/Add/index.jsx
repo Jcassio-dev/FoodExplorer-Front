@@ -157,8 +157,9 @@ export function Add(){
                     <label htmlFor='textarea'>Descrição</label>
                     <textarea name="textarea" id="textarea" placeholder='Fale brevemente sobre o prato, seus ingredientes e composição' value={description} onChange={e => setDescription(e.target.value)}/>
                 </div>
-
-                <Button add type="button" onClick={handleAddFood}>Salvar Alterações</Button>               
+                <div className="push">
+                    <Button add type="button" onClick={handleAddFood}>Salvar Alterações</Button>     
+                </div>          
             </C.Form>
             
         </C.Content>
