@@ -15,7 +15,7 @@ export const Container = styled.button`
 
     display: flex;
     align-items: center;
-    justify-content: center;
+
 
     @media (min-width: 1280px) {
         font-size: 24px;
@@ -23,6 +23,7 @@ export const Container = styled.button`
 
         &.signIn{
             font-size: 14px;
+            justify-content: center;
         }
     }
 `
