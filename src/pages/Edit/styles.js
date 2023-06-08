@@ -29,6 +29,7 @@ export const Content = styled.main`
 
     @media (min-width: 1280px){
         padding: 11px 123px;
+        height: 100%;
     }
 `
 
@@ -39,6 +40,7 @@ export const Form = styled.div`
     align-items: flex-start;
     flex-direction: column;
     gap: 20px;
+
 
     .col-3{
         width: 100%;
@@ -206,6 +208,8 @@ export const Form = styled.div`
 
     
     @media (min-width: 1280px) {
+        height: 100%;
+
         .col-3{
             display: grid;
             grid-template-columns: 260px 1fr 400px;

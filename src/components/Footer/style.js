@@ -1,6 +1,8 @@
 import  styled  from 'styled-components';
 
 export const Container = styled.div`
+    grid-area: footer;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -12,10 +14,6 @@ export const Container = styled.div`
     background-color: ${({theme}) => theme.COLORS.DARK_600};
 
     margin-top: 30px;
-
-    position: static;
-    top: 0;
-    bottom: 0;
 
     span{
         font-family: 'Poppins';
