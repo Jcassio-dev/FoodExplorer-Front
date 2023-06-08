@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import * as C from "./styles";
 
+import { toast } from 'react-toastify'
+
 import { useAuth } from '../../hooks/auth'
 
 import polygon from "../../assets/polygon.svg";
@@ -19,15 +21,21 @@ export function SignIn() {
 
   function handleSignIn(){
     if(!email){
-      alert("Preencha o campo de e-mail");
+      toast.warn("Preencha o campo de e-mail");
       return
     }
     if(!password){
-      alert("Preencha o campo de senha");
+      toast.warn("Preencha o campo de senha");
       return
     }
 
     signIn({email, password})
+  }
+
+  function handleSignInWithEnter(event){
+    if(event.key === 'Enter'){
+      handleSignIn()
+    }
   }
 
   return (
@@ -43,17 +51,21 @@ export function SignIn() {
       </C.Logo>
     <C.Form>
       <h1>Faça login</h1>
+
       <Input 
       label="E-mail"
       type="text" 
       placeholder="Exemplo: Exemplo@email.com.br"
       onChange={e => setEmail(e.target.value)}
+      onKeyDown={handleSignInWithEnter}
       />
+
       <Input 
       label="Senha"
       type="password" 
       placeholder="No mínimo 6 caracteres"
       onChange={e => setPassword(e.target.value)}
+      onKeyDown={handleSignInWithEnter}
       />
 
       <Button onClick={handleSignIn} type="button">Entrar</Button>
