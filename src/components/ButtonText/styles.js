@@ -10,14 +10,20 @@ export const Container = styled.button`
     font-family: 'Poppins';
     font-weight: 500;
 
+
     color: ${({theme}) => theme.COLORS.LIGHT_100};
 
     display: flex;
     align-items: center;
+    justify-content: center;
 
     @media (min-width: 1280px) {
         font-size: 24px;
         line-height: 140%;
+
+        &.signIn{
+            font-size: 14px;
+        }
     }
 `
 

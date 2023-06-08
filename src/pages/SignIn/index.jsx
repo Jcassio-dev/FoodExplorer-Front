@@ -58,7 +58,7 @@ export function SignIn() {
 
       <Button onClick={handleSignIn} type="button">Entrar</Button>
 
-      <ButtonText text="Criar uma conta" link="/register" type="button"/>
+      <ButtonText text="Criar uma conta" link="/register" type="button" className='signIn'/>
     </C.Form>
    </C.Container>
   )
