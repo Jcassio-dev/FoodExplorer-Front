@@ -44,11 +44,14 @@ export function Header({onChange}){
 
             <SearchInput onChange={onChange}/>
 
-            <Button>
-                <div className='addCart'>
+            <Button onClick={() => {isAdmin ? navigate('/add'): ()=>{}}}>
+                {isAdmin 
+                ? <>Novo prato</>
+                :<div className='addCart'>
                     <img src={receipt} alt="notinha"/>
-                     Pedidos (0)
-                </div>
+                    Pedidos (0)
+                 </div>
+                }
             </Button>
 
             <C.IconButton onClick={logOut}>
