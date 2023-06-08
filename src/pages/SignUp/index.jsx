@@ -56,6 +56,12 @@ export function SignUp() {
     }
 }
 
+function handleSignUpWithEnter(event){
+  if(event.key === 'Enter'){
+    handleSignUp()
+  }
+}
+
   return (
     <C.Container>
       <C.Logo>
@@ -74,6 +80,7 @@ export function SignUp() {
       type="text" 
       placeholder="Exemplo: Maria da Silva"
       onChange={e => setName(e.target.value)}
+      onKeyDown={handleSignUpWithEnter}
       />
 
       <Input 
@@ -81,6 +88,7 @@ export function SignUp() {
       type="email" 
       placeholder="Exemplo: exemplo@email.com.br"
       onChange={e => setEmail(e.target.value)}
+      onKeyDown={handleSignUpWithEnter}
       />
 
       <Input 
@@ -88,6 +96,7 @@ export function SignUp() {
       type="password" 
       placeholder="No mínimo 6 caracteres"
       onChange={e => setPassword(e.target.value)}
+      onKeyDown={handleSignUpWithEnter}
       />
 
       <Button onClick={handleSignUp} type="button">Criar conta</Button>
