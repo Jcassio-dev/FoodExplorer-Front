@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 
 import * as C from "./styles"
 
-import polygon from "../../assets/polygon.svg"
+import polygon from "../../assets/Polygon.svg"
 import chefAmico from "../../assets/amico.svg"
 
 import { api } from "../../services/api"
