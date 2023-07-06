@@ -9,7 +9,7 @@
 Explorer - Desafio Final - Food Explorer
 
 ## Instruções
-- 1 - Acesse a aplicação em: https://verificadordeofensas.netlify.app/;
+- 1 - Acesse a aplicação em: https://foodexplorer-cassio.netlify.app/;
 - 2 - Crie uma conta ou acesse com admin (login: admin@email.com, senha:123);
 
 </div>
