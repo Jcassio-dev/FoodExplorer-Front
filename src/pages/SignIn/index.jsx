@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 
 import { useAuth } from '../../hooks/auth'
 
-import polygon from "../../assets/polygon.svg";
+import polygon from "../../assets/Polygon.svg";
 import chefAmico from "../../assets/amico.svg"
 
 import {Input} from "../../components/Input";
